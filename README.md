@@ -1,5 +1,5 @@
 # NLP_finalProject
-Goal: sarcasm detection using trained BERT and distilBERT language models
+Goal: sarcasm detection using trained BERT and distilBERT language models and a bigram model as baseline.
 
 Datasets: 
 1/Traning dataset: 80% of the headlines from Onion(labelled as sarcastic), HuffPuff(labelled as non-sarcastic)
@@ -14,7 +14,16 @@ Data Preprocessing:
 and storing the data into a csv or excel file in this format: "label 1=sarcastic, 0=non-sarcastic", "data".
 
 Model Training:
-1/ Finetuning the simple BERT and distilBERT models
+1/ No need to train the bigram model
+2/ Finetuning the simple BERT and distilBERT models
+
+Tuning hyperparameters:
+1/ With the bigram model, we tried different k values and picked the one that yielded best performance.
+2/ The hyperparameters for our two BERT models are epochnum = 4 (recommended by the literature), batchsize, and learning rate. Each of us tried running a different combination of these hyperparameters on the dev dataset to 
+see which set of hyperparameters yield the best output, then we used that set for the final testing. 
+
+
+Testing models' performance:
 
 
 
