@@ -15,15 +15,36 @@ and storing the data into a csv or excel file in this format: "label 1=sarcastic
 
 Model Training:
 1/ No need to train the bigram model
-2/ Finetuning the simple BERT and distilBERT models
+2/ Finetuning the distilBERT models
+   Lambda layer: 1
+   Dense layer: 128 nodes, with activation function - relu (1)
+   Dropout rate: 0.2
+   Output layer: activation function - sigmoid
+   Optimizer: Adam, learning rate - 1e-5, loss function - binary_crossentropy, metrics - accuracy
+   
 
 Tuning hyperparameters:
 1/ With the bigram model, we tried different k values and picked the one that yielded best performance.
-2/ The hyperparameters for our two BERT models are epochnum = 4 (recommended by the literature), batchsize, and learning rate. Each of us tried running a different combination of these hyperparameters on the dev dataset to 
+2/ The hyperparameters for our DistilBERT model is epochnum = 3, batchsize = 32, and learning rate = 1e-5. Each of us tried running a different combination of these hyperparameters on the dev dataset to 
 see which set of hyperparameters yield the best output, then we used that set for the final testing. 
 
 
 Testing models' performance:
+
+DistilBERT:
+  Baseline testing (accuracy): 
+    In-distribution:
+      News Headlines: 47.45%
+    Out-of distribution:
+      Reddit: 50.94%
+      Tweet: 47.79%
+      
+  Post-training testing (accuracy):    
+    In-distribution:
+      News Headlines: 87.84%
+    Out-of distribution:
+      Reddit: 48.76%
+      Tweet: 51.52%
 
 
 
