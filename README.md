@@ -14,7 +14,8 @@ Data Preprocessing:
 and storing the data into a csv or excel file in this format: "label 1=sarcastic, 0=non-sarcastic", "data".
 
 Model Training:
-1/ No need to train the bigram model
+1/ No need to train the n-gram model but minimal hyperparameter tunings. 
+
 2/ Finetuning the distilBERT models
    Lambda layer: 1
    Dense layer: 128 nodes, with activation function - relu (1)
@@ -24,7 +25,8 @@ Model Training:
    
 
 Tuning hyperparameters:
-1/ With the bigram model, we tried different k values and picked the one that yielded best performance.
+1/ After trying different pairs of k and n we figured out that a 5-gram LM with k=0.001 yields best performance among all attempts.
+
 2/ The hyperparameters for our DistilBERT model is epochnum = 3, batchsize = 32, and learning rate = 1e-5. Each of us tried running a different combination of these hyperparameters on the dev dataset to 
 see which set of hyperparameters yield the best output, then we used that set for the final testing. 
 
